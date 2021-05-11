@@ -2,36 +2,57 @@ import 'package:CShop/core/app_colors.dart';
 import 'package:CShop/core/app_icons.dart';
 import 'package:flutter/material.dart';
 
-class CardCategoryWidget extends StatelessWidget {
-  final String label;
-  final String icon;
-  CardCategoryWidget({Key? key, required this.label, required this.icon})
-      : super(key: key);
+class CardCategoryWidget extends StatefulWidget {
+  CardCategoryWidget({Key? key}) : super(key: key);
+
+  @override
+  _CardCategoryWidgetState createState() => _CardCategoryWidgetState();
+}
+
+class _CardCategoryWidgetState extends State<CardCategoryWidget> {
+  List<String> categories = ["Oculos", "Joias", "Roupas", "Makeup"];
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Container(
-      padding: EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-          color: Colors.black26, borderRadius: BorderRadius.circular(10)),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: ClipRRect(
-              child: Image.asset(
-                icon,
-                width: 30,
-                height: 30,
-              ),
-            ),
-          ),
-          Text(
-            label,
-            style: TextStyle(color: Colors.white54),
-          )
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: SizedBox(
+        height: 25,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: categories.length,
+            itemBuilder: (context, index) => buildCategory(index)),
       ),
-    ));
+    );
+  }
+
+  Widget buildCategory(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedIndex = index;
+        });
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(categories[index],
+                style: TextStyle(
+                    color:
+                        selectedIndex == index ? Colors.white : Colors.white70,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold)),
+            Container(
+              margin: EdgeInsets.only(top: 10 / 4),
+              height: 3,
+              width: 30,
+              color: selectedIndex == index ? Colors.white : Colors.white70,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

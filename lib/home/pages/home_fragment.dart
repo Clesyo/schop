@@ -8,31 +8,25 @@ class HomeFragment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
         child: Column(
           children: [
-            Container(
-              height: 80,
-              child: ListView(
-                controller: ScrollController(),
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  CardCategoryWidget(label: "Oculos", icon: AppIcons.oculus),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  CardCategoryWidget(label: "Relogios", icon: AppIcons.clock),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  CardCategoryWidget(label: "Makeup", icon: AppIcons.makeup),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  CardCategoryWidget(label: "Joias", icon: AppIcons.colar),
-                ],
-              ),
+            CardCategoryWidget(),
+            SizedBox(
+              height: 10,
             ),
+            Expanded(
+                child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 2),
+              child: GridView.builder(
+                  itemCount: 6,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.72,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10),
+                  itemBuilder: (context, index) => CardItemWidget()),
+            ))
           ],
         ));
   }

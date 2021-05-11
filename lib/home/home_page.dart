@@ -12,13 +12,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Widget> _list_page = [
-    HomeFragment(),
-    FavoriteFrangment(),
-    SearchFragment(),
-    OrderFragment(),
-    ProfileFragment()
-  ];
+  List<Widget> get _list_page => [
+        HomeFragment(),
+        FavoriteFrangment(),
+        SearchFragment(),
+        OrderFragment(),
+        ProfileFragment()
+      ];
   int _index = 0;
   void onTapTapped(int index) {
     setState(() {
@@ -37,8 +37,8 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Text(
-                "Bem vindo",
-                style: TextStyle(fontSize: 15),
+                "Bem-vindo",
+                style: TextStyle(fontSize: 14),
               ),
             ),
             Text("Minha Loja"),
