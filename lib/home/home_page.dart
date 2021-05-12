@@ -46,7 +46,6 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
       ),
-      backgroundColor: AppColors.backPrimary,
       body: _list_page[_index],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.backPrimary,
@@ -66,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.white),
               ),
               activeIcon: Icon(
-                Icons.home_outlined,
+                Icons.home,
                 color: Colors.blue,
               )),
           BottomNavigationBarItem(
@@ -79,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.white),
               ),
               activeIcon: Icon(
-                Icons.favorite_outline,
+                Icons.favorite,
                 color: Colors.blue,
               )),
           BottomNavigationBarItem(
@@ -106,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.white),
               ),
               activeIcon: Icon(
-                Icons.shopping_cart_outlined,
+                Icons.shopping_cart,
                 color: Colors.blue,
               )),
           BottomNavigationBarItem(
@@ -120,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.white),
               ),
               activeIcon: Icon(
-                Icons.person_outline,
+                Icons.person,
                 color: Colors.blue,
               )),
         ],

@@ -10,7 +10,11 @@ class CardCategoryWidget extends StatefulWidget {
 }
 
 class _CardCategoryWidgetState extends State<CardCategoryWidget> {
-  List<String> categories = ["Oculos", "Joias", "Roupas", "Makeup"];
+  List<String> categories = [
+    "Alcoólicas",
+    "Não Alcoólicas",
+    "Outras Mercadorias"
+  ];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -40,15 +44,14 @@ class _CardCategoryWidgetState extends State<CardCategoryWidget> {
           children: [
             Text(categories[index],
                 style: TextStyle(
-                    color:
-                        selectedIndex == index ? Colors.white : Colors.white70,
+                    color: selectedIndex == index ? Colors.black : Colors.grey,
                     fontSize: 16,
                     fontWeight: FontWeight.bold)),
             Container(
               margin: EdgeInsets.only(top: 10 / 4),
               height: 3,
               width: 30,
-              color: selectedIndex == index ? Colors.white : Colors.white70,
+              color: selectedIndex == index ? Colors.black : Colors.grey,
             )
           ],
         ),
