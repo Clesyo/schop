@@ -7,7 +7,7 @@ class SearchFragment extends StatelessWidget {
       child: Center(
         child: Text(
           "Busca",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
       ),
     );

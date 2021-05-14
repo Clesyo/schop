@@ -1,20 +1,20 @@
-import 'package:CShop/core/app_colors.dart';
-import 'package:CShop/core/app_icons.dart';
 import 'package:flutter/material.dart';
 
+import 'package:CShop/core/app_colors.dart';
+import 'package:CShop/core/app_icons.dart';
+
 class CardCategoryWidget extends StatefulWidget {
-  CardCategoryWidget({Key? key}) : super(key: key);
+  final List<String> list;
+  CardCategoryWidget({
+    Key? key,
+    required this.list,
+  }) : super(key: key);
 
   @override
   _CardCategoryWidgetState createState() => _CardCategoryWidgetState();
 }
 
 class _CardCategoryWidgetState extends State<CardCategoryWidget> {
-  List<String> categories = [
-    "Alcoólicas",
-    "Não Alcoólicas",
-    "Outras Mercadorias"
-  ];
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _CardCategoryWidgetState extends State<CardCategoryWidget> {
         height: 25,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: categories.length,
+            itemCount: widget.list.length,
             itemBuilder: (context, index) => buildCategory(index)),
       ),
     );
@@ -42,7 +42,7 @@ class _CardCategoryWidgetState extends State<CardCategoryWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(categories[index],
+            Text(widget.list[index],
                 style: TextStyle(
                     color: selectedIndex == index ? Colors.black : Colors.grey,
                     fontSize: 16,

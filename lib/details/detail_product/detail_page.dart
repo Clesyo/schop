@@ -1,7 +1,8 @@
 import 'package:CShop/core/app_colors.dart';
-import 'package:CShop/detail/widget/detail_body_widget.dart';
 import 'package:CShop/models/products.dart';
 import 'package:flutter/material.dart';
+
+import 'widget/detail_body_widget.dart';
 
 class DetailPage extends StatelessWidget {
   final Product product;

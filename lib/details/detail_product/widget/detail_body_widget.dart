@@ -1,9 +1,10 @@
 import 'package:CShop/core/app_colors.dart';
-import 'package:CShop/detail/widget/cart_counter_widget.dart';
-import 'package:CShop/detail/widget/poduct_title_image_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:CShop/models/products.dart';
+
+import 'cart_counter_widget.dart';
+import 'poduct_title_image_widget.dart';
 
 class DetailBodyWidget extends StatelessWidget {
   final Product product;

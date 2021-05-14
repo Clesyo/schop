@@ -7,7 +7,7 @@ class ProfileFragment extends StatelessWidget {
       child: Center(
         child: Text(
           "Perfil",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
       ),
     );

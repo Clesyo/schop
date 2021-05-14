@@ -1,5 +1,5 @@
 import 'package:CShop/core/app_icons.dart';
-import 'package:CShop/detail/detail_page.dart';
+import 'package:CShop/details/detail_page.dart';
 import 'package:CShop/home/widget/card_category_widget.dart';
 import 'package:CShop/home/widget/card_item_widget.dart';
 import 'package:CShop/models/products.dart';
@@ -14,7 +14,9 @@ class HomeFragment extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 6, vertical: 10),
         child: Column(
           children: [
-            CardCategoryWidget(),
+            CardCategoryWidget(
+              list: ["Alcoólicas", "Não Alcoólicas", "Outras Mercadorias"],
+            ),
             SizedBox(
               height: 25,
             ),
