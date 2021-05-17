@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:CShop/core/app_colors.dart';
-import 'package:CShop/core/app_icons.dart';
-
 class CardCategoryWidget extends StatefulWidget {
   final List<String> list;
   CardCategoryWidget({

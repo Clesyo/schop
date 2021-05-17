@@ -3,12 +3,13 @@ class Orders {
   final String date;
   final String status;
   final double total;
-  Orders({
-    required this.nunOrder,
-    required this.date,
-    required this.status,
-    required this.total,
-  });
+  bool isExpanded;
+  Orders(
+      {required this.nunOrder,
+      required this.date,
+      required this.status,
+      required this.total,
+      this.isExpanded = false});
 
   static List<Orders> get orders => [
         Orders(

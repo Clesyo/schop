@@ -1,4 +1,6 @@
 import 'package:CShop/core/app_colors.dart';
+import 'package:CShop/filter/filter_search_page.dart';
+import 'package:CShop/filter/widget/appbar_filter_seach_widget.dart';
 import 'package:CShop/home/pages/favorite_fragment.dart';
 import 'package:CShop/home/pages/home_fragment.dart';
 import 'package:CShop/home/pages/order_fragment.dart';
@@ -29,23 +31,44 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        backgroundColor: AppColors.backPrimary,
-        title: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(
-                "Bem-vindo",
-                style: TextStyle(fontSize: 14),
+      appBar: _index != 2
+          ? AppBar(
+              toolbarHeight: 80,
+              backgroundColor: AppColors.backPrimary,
+              title: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Text(
+                      "Bem-vindo",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ),
+                  Text("Minha Loja"),
+                ],
               ),
+              centerTitle: true,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.shopping_cart),
+                  onPressed: () {},
+                  tooltip: "Carrindo",
+                )
+              ],
+            )
+          : AppBar(
+              toolbarHeight: 80,
+              backgroundColor: AppColors.backPrimary,
+              title: AppBarFilterSearchWidget(),
+              actions: <Widget>[
+                IconButton(
+                    icon: Icon(Icons.filter_alt),
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FilterSearchPage())))
+              ],
             ),
-            Text("Minha Loja"),
-          ],
-        ),
-        centerTitle: true,
-      ),
       body: _list_page[_index],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.backPrimary,

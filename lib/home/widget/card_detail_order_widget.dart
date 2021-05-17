@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:CShop/models/orders.dart';
 
-class CardDetailOrderWidget extends StatelessWidget {
+class CardDetailOrderWidget extends StatefulWidget {
   final Orders order;
   const CardDetailOrderWidget({
     Key? key,
     required this.order,
   }) : super(key: key);
+
+  @override
+  _CardDetailOrderWidgetState createState() => _CardDetailOrderWidgetState();
+}
+
+class _CardDetailOrderWidgetState extends State<CardDetailOrderWidget> {
   @override
   Widget build(BuildContext context) {
     // Size size = MediaQuery.of(context).size;
@@ -24,11 +30,12 @@ class CardDetailOrderWidget extends StatelessWidget {
                   Text.rich(TextSpan(children: [
                     TextSpan(text: "Nº Pedido: "),
                     TextSpan(
-                        text: order.nunOrder.toString(),
+                        text: widget.order.nunOrder.toString(),
                         style: Theme.of(context).textTheme.subtitle1!.copyWith(
                             color: Colors.black, fontWeight: FontWeight.bold))
                   ])),
-                  Text(order.status, style: TextStyle(color: Colors.blueAccent))
+                  Text(widget.order.status,
+                      style: TextStyle(color: Colors.blueAccent))
                 ],
               ),
               SizedBox(
@@ -39,7 +46,7 @@ class CardDetailOrderWidget extends StatelessWidget {
                   Text.rich(TextSpan(children: [
                     TextSpan(text: "Data: "),
                     TextSpan(
-                        text: order.date,
+                        text: widget.order.date,
                         style: Theme.of(context).textTheme.subtitle1!.copyWith(
                             color: Colors.black, fontWeight: FontWeight.bold))
                   ])),
@@ -53,16 +60,62 @@ class CardDetailOrderWidget extends StatelessWidget {
                   Text.rich(TextSpan(children: [
                     TextSpan(text: "Total: "),
                     TextSpan(
-                        text: "R\$ ${order.total}",
+                        text: "R\$ ${widget.order.total}",
                         style: Theme.of(context).textTheme.subtitle1!.copyWith(
                             color: Colors.black, fontWeight: FontWeight.bold))
                   ])),
                 ],
               ),
+              SizedBox(
+                height: 15,
+              ),
+              ExpansionPanelList(
+                expansionCallback: (int i, bool isOpen) {
+                  setState(() {
+                    widget.order.isExpanded = !isOpen;
+                  });
+                },
+                children: [
+                  ExpansionPanel(
+                      headerBuilder: (context, isOpen) {
+                        return ListTile(
+                          title: Text("Mostar mais"),
+                        );
+                      },
+                      body: ListTile(
+                        title: Text("Item 01"),
+                      ),
+                      isExpanded: widget.order.isExpanded)
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  buildButton("Acompanhar"),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  buildButton("Mais informação")
+                ],
+              )
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildButton(String label) {
+    return FlatButton(
+      color: Colors.grey,
+      onPressed: () {},
+      child: Text(
+        label,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
     );
   }
 }

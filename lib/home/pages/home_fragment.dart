@@ -1,5 +1,5 @@
 import 'package:CShop/core/app_icons.dart';
-import 'package:CShop/details/detail_page.dart';
+import 'package:CShop/details/detail_product/detail_page.dart';
 import 'package:CShop/home/widget/card_category_widget.dart';
 import 'package:CShop/home/widget/card_item_widget.dart';
 import 'package:CShop/models/products.dart';
