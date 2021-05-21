@@ -1,7 +1,7 @@
 import 'package:CShop/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import 'package:CShop/models/products.dart';
+import 'package:CShop/models/product.dart';
 
 import 'cart_counter_widget.dart';
 import 'poduct_title_image_widget.dart';

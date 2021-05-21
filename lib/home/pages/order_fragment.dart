@@ -1,11 +1,11 @@
 import 'package:CShop/core/app_colors.dart';
 import 'package:CShop/home/widget/card_category_widget.dart';
 import 'package:CShop/home/widget/card_detail_order_widget.dart';
-import 'package:CShop/models/orders.dart';
+import 'package:CShop/models/order.dart';
 import 'package:flutter/material.dart';
 
 class OrderFragment extends StatelessWidget {
-  List<Orders> orders = Orders.orders;
+  List<Order> orders = Order.orders;
   @override
   Widget build(BuildContext context) {
     return Padding(

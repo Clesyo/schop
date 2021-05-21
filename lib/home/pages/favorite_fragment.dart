@@ -1,5 +1,5 @@
 import 'package:CShop/home/widget/card_favorite_widget.dart';
-import 'package:CShop/models/products.dart';
+import 'package:CShop/models/product.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteFrangment extends StatelessWidget {

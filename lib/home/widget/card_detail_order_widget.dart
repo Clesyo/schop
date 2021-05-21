@@ -1,9 +1,10 @@
+import 'package:CShop/models/item_order.dart';
 import 'package:flutter/material.dart';
 
-import 'package:CShop/models/orders.dart';
+import 'package:CShop/models/order.dart';
 
 class CardDetailOrderWidget extends StatefulWidget {
-  final Orders order;
+  final Order order;
   const CardDetailOrderWidget({
     Key? key,
     required this.order,
@@ -14,6 +15,7 @@ class CardDetailOrderWidget extends StatefulWidget {
 }
 
 class _CardDetailOrderWidgetState extends State<CardDetailOrderWidget> {
+  final List<ItemOrder> _data = ItemOrder.itens;
   @override
   Widget build(BuildContext context) {
     // Size size = MediaQuery.of(context).size;
@@ -83,7 +85,21 @@ class _CardDetailOrderWidgetState extends State<CardDetailOrderWidget> {
                         );
                       },
                       body: ListTile(
-                        title: Text("Item 01"),
+                        title: Column(
+                            children: _data.map<Container>((ItemOrder item) {
+                          return widget.order.nunOrder == item.order.nunOrder
+                              ? Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(item.product.name),
+                                      Text(" --------------------------- "),
+                                      Text(item.product.price.toString()),
+                                    ],
+                                  ),
+                                )
+                              : Container();
+                        }).toList()),
                       ),
                       isExpanded: widget.order.isExpanded)
                 ],

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:CShop/core/app_colors.dart';
 import 'package:CShop/core/app_images.dart';
-import 'package:CShop/models/products.dart';
+import 'package:CShop/models/product.dart';
 
 class CardItemWidget extends StatelessWidget {
   final Product product;

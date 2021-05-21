@@ -1,6 +1,5 @@
 import 'package:CShop/core/app_colors.dart';
 import 'package:CShop/filter/widget/card_category_filter_widget.dart';
-import 'package:CShop/home/widget/card_category_widget.dart';
 import 'package:flutter/material.dart';
 
 class FilterSearchPage extends StatefulWidget {

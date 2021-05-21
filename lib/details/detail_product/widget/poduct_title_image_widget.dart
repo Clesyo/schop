@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:CShop/models/products.dart';
+import 'package:CShop/models/product.dart';
 
 class ProductTitleImageWidget extends StatelessWidget {
   final Product product;

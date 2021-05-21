@@ -1,3 +1,4 @@
+import 'package:CShop/configuration/profile/settings_page.dart';
 import 'package:CShop/core/app_colors.dart';
 import 'package:CShop/filter/filter_search_page.dart';
 import 'package:CShop/filter/widget/appbar_filter_seach_widget.dart';
@@ -31,44 +32,68 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _index != 2
-          ? AppBar(
-              toolbarHeight: 80,
-              backgroundColor: AppColors.backPrimary,
+      appBar: (_index == 4)
+          ? buildAppBarHome(
+              barHeight: 80,
+              color: AppColors.backPrimary,
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SettingsPage())),
+                  tooltip: "Configuração",
+                )
+              ],
               title: Column(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
-                      "Bem-vindo",
+                      "Bem - Vindo",
                       style: TextStyle(fontSize: 14),
                     ),
                   ),
-                  Text("Minha Loja"),
+                  Text("Minha loja"),
                 ],
               ),
-              centerTitle: true,
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.shopping_cart),
-                  onPressed: () {},
-                  tooltip: "Carrindo",
-                )
-              ],
             )
-          : AppBar(
-              toolbarHeight: 80,
-              backgroundColor: AppColors.backPrimary,
-              title: AppBarFilterSearchWidget(),
-              actions: <Widget>[
-                IconButton(
-                    icon: Icon(Icons.filter_alt),
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => FilterSearchPage())))
-              ],
-            ),
+          : (_index == 2)
+              ? buildAppBarHome(
+                  barHeight: 80,
+                  color: AppColors.backPrimary,
+                  title: AppBarFilterSearchWidget(),
+                  actions: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.filter_alt),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FilterSearchPage())))
+                  ],
+                )
+              : buildAppBarHome(
+                  barHeight: 80,
+                  color: AppColors.backPrimary,
+                  actions: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.shopping_cart),
+                      onPressed: () {},
+                      tooltip: "Carrinho",
+                    )
+                  ],
+                  title: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          "Bem - Vindo",
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
+                      Text("Minha loja"),
+                    ],
+                  ),
+                ),
       body: _list_page[_index],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.backPrimary,
@@ -148,5 +173,18 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  AppBar buildAppBarHome(
+      {required double barHeight,
+      required Color color,
+      required List<Widget> actions,
+      required Widget title}) {
+    return AppBar(
+        toolbarHeight: barHeight,
+        backgroundColor: color,
+        title: title,
+        centerTitle: true,
+        actions: actions);
   }
 }
